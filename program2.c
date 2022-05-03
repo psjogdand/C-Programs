@@ -1,12 +1,10 @@
-// Write a program which is accept number from user and print the even factors of that number
-// Input : 36 Output: 2 6 12 18
+//Write a program which accept number from user and print factors of that number
+
 #include<stdio.h>
 
-void DisplayEvenFactor(int iNo)
+void DisplayFactors(int iNo)
 {
     int iCnt = 0;
-    iNo = 0;
-    int iEvenFactors=0;
     if(iNo < 0)
     {
         iNo = -iNo;
@@ -14,7 +12,7 @@ void DisplayEvenFactor(int iNo)
 
     for(iCnt = 1; iCnt < iNo; iCnt++)
     {
-        if((iNo % iCnt) == 0 && (iCnt/2==0))
+        if((iNo % iCnt) == 0)
         {
             printf("%d\n",iCnt);
         }
@@ -28,6 +26,6 @@ int main()
     printf("Enter number : \n");
     scanf("%d",&iValue);
 
-    DisplayEvenFactor(iValue);  
+    DisplayFactors(iValue);     // DisplayFactors(-8);
     return 0;
 }

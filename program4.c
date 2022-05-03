@@ -1,25 +1,27 @@
-//Accept two numbers from user and display first number in second number of times.
+//Accept the charecter from user and convert case of that charecter
 #include<stdio.h>
-void Display(int iNo, int iFrequency)
-{
-    iNo = 0;
-    for(iNo=0;iNo<iFrequency;iNo++)
+#include<ctype.h>
+
+void DisplayConvert(char cValue)
+{  
+    if(isalpha(cValue))
     {
-        printf("%d",&iNo);
+        cValue = tolower(cValue);
+        printf("%c",cValue);
     }
+    else if(isalpha(cValue))
+    {
+        cValue = toupper(cValue);
+        printf("%c",cValue);
+    }
+
 }
 int main()
 {
-    int iValue = 0;
-    int iCount = 0;
+    char cValue;
+    printf("Enter charecter\n");
+    scanf("%c",&cValue);
 
-    printf("Enter number");
-    scanf("%d",&iValue);
-
-    printf("Enter requency");
-    scanf("%d",&iCount);
-
-    Display(iValue,iCount);
-
+    DisplayConvert(cValue);
     return 0;
 }

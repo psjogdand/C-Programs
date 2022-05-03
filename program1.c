@@ -1,22 +1,30 @@
-//Accept 1 number from user and print that number of * on screen
+//Write a program which accept number from user and print that number of even numbers on screen
 
 #include<stdio.h>
-Display(int iNo)
+
+void DisplayEvenNumbers(int iNo)
 {
     int iCnt = 0;
-    for(iCnt =0; iCnt<iNo ; iCnt++)
+    if(iNo<0)
     {
-        printf("*");
+        iNo = - iNo;
+
+    }
+    for(iCnt = 2; iCnt<iNo; iCnt++)
+    {
+        if(iCnt%2 == 0)
+        {
+            printf("%d ",iCnt);
+        }
     }
 }
-
 int main()
 {
-    int iValue = 0;
-
-    printf("Enter number");
+    int iValue;
+    printf("Enter number\n");
     scanf("%d",&iValue);
 
-    Display(iValue);
+    DisplayEvenNumbers(iValue);
+
     return 0;
 }

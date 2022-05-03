@@ -1,33 +1,39 @@
-//Accept number from user and check whether number is even or odd
+//Accept one charecter from user and check wheter that charecter is vowel or not?
+//Input : E output: true. Inpur: w output : false
+
 #include<stdio.h>
 #include<stdbool.h>
 
-bool CheckEvenOdd(int iNo)
+bool CheckVowel(char cValue)
 {
-
-    if(iNo<0)
-    {
-        iNo = - iNo;
-    }
-    if(iNo%2==0)
+    if((cValue!="a") ||(cValue!="e") || (cValue!="i") || (cValue!="o") || (cValue!="u") )
     {
         return true;
     }
-    if(iNo%2!=0)
+    else
     {
         return false;
     }
-    
 }
 int main()
 {
-    int iValue = 0;
+
+    char cValue = "\0";
     bool bRet = false;
 
-    printf("Enter number");
-    scanf("%d",&iValue);
+    printf("Enter charecter::\n");
+    scanf("%c",&cValue);
 
-    bRet = CheckEvenOdd(iValue);
+    bRet = CheckVowel(cValue);
 
-    return 0 ;
+    if(bRet == true)
+    {
+        printf("It is vowel");
+    }
+    else
+    {
+        printf("It is not vowel");
+    }
+
+    return 0;
 }
