@@ -1,10 +1,13 @@
-//Write a program which accept number from user and print factors of that number
+//Write a program whcich accept number from user   and display its factor in decresing order 
+//input: 12 output: 6 4 3 2 1
 
 #include<stdio.h>
-
-void DisplayFactors(int iNo)
-{
+void FactRev(int iNo)
+{   
     int iCnt = 0;
+    int iTemp = 0;
+    int iSum = 0;
+    int iRev = 0;
     if(iNo < 0)
     {
         iNo = -iNo;
@@ -13,19 +16,24 @@ void DisplayFactors(int iNo)
     for(iCnt = 1; iCnt < iNo; iCnt++)
     {
         if((iNo % iCnt) == 0)
-        {
+        {   
+            for(iTemp = iNo; iNo!=0; iNo = iNo/10)
+            {
+                iRev = iNo%10;
+                iSum = iSum*10+iRev;
+            }
             printf("%d\n",iCnt);
         }
     }
 }
-
 int main()
 {
     int iValue = 0;
 
-    printf("Enter number : \n");
+    printf("Enter number\n ");
     scanf("%d",&iValue);
 
-    DisplayFactors(iValue);     // DisplayFactors(-8);
+    FactRev(iValue);
+
     return 0;
 }

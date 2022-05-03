@@ -1,39 +1,48 @@
-//Accept one charecter from user and check wheter that charecter is vowel or not?
-//Input : E output: true. Inpur: w output : false
+//Write a program which accepts numbers from user and return diference between summation of all its factors and non factors number
+// Input : 12 Output: -34 (16-50)
 
 #include<stdio.h>
-#include<stdbool.h>
 
-bool CheckVowel(char cValue)
+int FactDif(int iNo)
 {
-    if((cValue!="a") ||(cValue!="e") || (cValue!="i") || (cValue!="o") || (cValue!="u") )
+    int iCnt = 0;
+    int iNonFactSum = 0;
+    int iFactSum = 0;
+    int iFactDiff = 0;
+    if(iNo < 0)
     {
-        return true;
+        iNo = -iNo;
     }
-    else
+
+    for(iCnt = 1; iCnt < iNo; iCnt++)
     {
-        return false;
+        if((iNo % iCnt) == 0)
+        {
+            iFactSum = iFactSum + iCnt;
+            
+        }
+        else if((iNo % iCnt) != 0)
+        {
+            iNonFactSum = iNonFactSum + iCnt;
+            
+        }
+
     }
+    iFactDiff = iFactSum-iNonFactSum;
+    return iFactDiff;
 }
 int main()
 {
+    int iValue = 0;
+    int iRet = 0;
+    printf("Enter the number\n");
+    scanf("%d",&iValue);
 
-    char cValue = "\0";
-    bool bRet = false;
 
-    printf("Enter charecter::\n");
-    scanf("%c",&cValue);
-
-    bRet = CheckVowel(cValue);
-
-    if(bRet == true)
-    {
-        printf("It is vowel");
-    }
-    else
-    {
-        printf("It is not vowel");
-    }
-
+    iRet = FactDif(iValue);
+    printf("%d",iRet);
     return 0;
+
 }
+
+// Time Complexity : O(N)

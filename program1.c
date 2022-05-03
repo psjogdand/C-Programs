@@ -1,30 +1,36 @@
-//Write a program which accept number from user and print that number of even numbers on screen
+//Write a program which accept number from user and display its multiplication of factors
+//input: 12 output: 144
 
 #include<stdio.h>
 
-void DisplayEvenNumbers(int iNo)
+int MulFact(int iNo)
 {
     int iCnt = 0;
+    int iMul;
     if(iNo<0)
     {
         iNo = - iNo;
 
-    }
-    for(iCnt = 2; iCnt<iNo; iCnt++)
+    }   
+    for(iCnt = 1; iCnt<=iNo/2; iCnt++)
     {
-        if(iCnt%2 == 0)
+        if(iNo%iCnt == 0)
         {
-            printf("%d ",iCnt);
+            iMul = iMul * iCnt;
         }
-    }
+    } 
+    return iMul;
 }
 int main()
 {
-    int iValue;
-    printf("Enter number\n");
-    scanf("%d",&iValue);
+    int iValue = 0;
+    int iRet = 0;
 
-    DisplayEvenNumbers(iValue);
+    printf("Enter the number");
+    scanf("%d", & iValue);
 
+    iRet = MulFact(iValue);
+    printf("%d",iRet);
     return 0;
+
 }
